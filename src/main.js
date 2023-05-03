@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from './router'
 import { vuetify } from './vuetify/vuetify'
 
+import './assets/normalize.css'
 import './assets/main.css'
 
 const app = createApp(App)

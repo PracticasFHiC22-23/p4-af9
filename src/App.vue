@@ -1,7 +1,8 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+// import { RouterLink, RouterView } from 'vue-router'
+// import HelloWorld from './components/HelloWorld.vue'
 import HeaderBar from './components/HeaderBar.vue'
+import IndexSearcher from './components/IndexSearcher.vue'
 </script>
 
 <template>
@@ -17,12 +18,38 @@ import HeaderBar from './components/HeaderBar.vue'
       </nav>
     </div>
   </header> -->
+  <div class="height:20vh; background-color:pink;">
+    <HeaderBar></HeaderBar>
+  </div>
 
-  <HeaderBar></HeaderBar>
+  <!--  -->
+  <div class="area">
+    sdsdsdsd
+    <IndexSearcher></IndexSearcher>
+  </div>
 
-  <RouterView />
+  <!-- <RouterView /> -->
 </template>
 
+<style scoped>
+.container {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+}
+
+.area {
+  display: flex;
+
+  /* vertical */
+  align-items: center;
+
+  /* horizontal */
+  justify-content: center;
+}
+</style>
+
+<!-- 
 <style scoped>
 header {
   line-height: 1.5;
@@ -85,4 +112,4 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
-</style>
+</style> -->
