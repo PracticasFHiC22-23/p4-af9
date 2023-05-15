@@ -5,7 +5,9 @@ export default {
   },
 
   methods: {
-    onClick() {}
+    onClick() {
+      this.$emit('custom-event', '事件参数')
+    }
   }
 }
 </script>
@@ -25,7 +27,7 @@ export default {
         <p>hysical review letters, 2019, Vol.122(10), p.103001-103001</p>
         <p>
           Ultralong-range Rydberg trimer molecules are spectrosocpila obereved in aultracoid gas of
-          Cs(nd_3/2) atoms
+          Cs(nd_3/2)
         </p>
       </div>
       <div class="types">
