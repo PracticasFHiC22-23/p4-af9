@@ -1,5 +1,5 @@
 <script lang="ts">
-import HeaderBar from '../components/HeaderBar.vue'
+import homeHeaderBar from '../components/homeHeaderBar.vue'
 
 export default {
   data() {
@@ -22,13 +22,13 @@ export default {
   },
 
   components: {
-    HeaderBar
+    homeHeaderBar
   }
 }
 </script>
 
 <template>
-  <HeaderBar />
+  <homeHeaderBar />
 
   <div class="main">
     <v-img
