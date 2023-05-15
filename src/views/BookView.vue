@@ -1,13 +1,16 @@
 <script lang="ts">
 import searchHeaderBar from '../components/searchHeaderBar.vue'
 import bookFilterTool from '../components/bookFilterTool.vue'
+import bookCard from '../components/bookCard.vue'
+
 
 export default {
   data() {
     return {
       search: '',
       loaded: false,
-      loading: false
+      loading: false,
+      page: 1
     }
   },
 
@@ -15,7 +18,8 @@ export default {
 
   components: {
     searchHeaderBar,
-    bookFilterTool
+    bookFilterTool,
+    bookCard
   }
 }
 </script>
@@ -29,7 +33,27 @@ export default {
     </div>
     <div class="context">
       <div class="card-list">
-        
+        <bookCard />
+        <bookCard />
+        <bookCard />
+        <bookCard />
+        <bookCard />
+        <bookCard />
+        <bookCard />
+        <bookCard />
+      </div>
+      <div>
+        <div class="text-center">
+          <v-container>
+            <v-row justify="center">
+              <v-col cols="8">
+                <v-container class="max-width">
+                  <v-pagination v-model="page" class="my-4" :length="15"></v-pagination>
+                </v-container>
+              </v-col>
+            </v-row>
+          </v-container>
+        </div>
       </div>
     </div>
   </div>
@@ -47,14 +71,11 @@ export default {
 
 .context {
   width: 82%;
-  background-color: rosybrown;
 }
 
 .card-list {
   margin-top: 40px;
   margin-left: 20px;
-  background-color: cyan;
   width: 100%;
-  height: 100%;
 }
 </style>

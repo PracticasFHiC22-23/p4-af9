@@ -23,9 +23,9 @@ export default {
 
 <template>
   <header>
-    <v-card style="height: 13vh">
+    <v-card style="height: 140px">
       <v-layout style="height: 65%">
-        <v-app-bar color="primary" prominent flat="true" rounded="false" style="margin-top: 20px">
+        <v-app-bar color="primary" prominent flat="true" rounded="false" style="padding-top: 20px">
           <img
             width="160"
             style="margin-left: 30px"

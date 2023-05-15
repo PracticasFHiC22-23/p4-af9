@@ -4,7 +4,16 @@ export default {
     return { value: [1980, 2023] }
   },
 
-  methods: {}
+  methods: {
+    onClick() {
+      this.loading = true
+
+      setTimeout(() => {
+        this.loading = false
+        this.loaded = true
+      }, 2000)
+    }
+  }
 }
 </script>
 
