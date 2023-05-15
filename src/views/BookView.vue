@@ -1,5 +1,6 @@
 <script lang="ts">
 import searchHeaderBar from '../components/searchHeaderBar.vue'
+import bookFilterTool from '../components/bookFilterTool.vue'
 
 export default {
   data() {
@@ -10,19 +11,11 @@ export default {
     }
   },
 
-  methods: {
-    onClick() {
-      this.loading = true
-
-      setTimeout(() => {
-        this.loading = false
-        this.loaded = true
-      }, 2000)
-    }
-  },
+  methods: {},
 
   components: {
-    searchHeaderBar
+    searchHeaderBar,
+    bookFilterTool
   }
 }
 </script>
@@ -30,9 +23,38 @@ export default {
 <template>
   <searchHeaderBar />
 
-  <div class="about">
-    <h1>THIS PAGE THIS FOR BOOK</h1>
+  <div class="main">
+    <div class="filtering">
+      <bookFilterTool />
+    </div>
+    <div class="context">
+      <div class="card-list">
+        
+      </div>
+    </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.main {
+  width: 100%;
+  display: flex;
+}
+
+.filtering {
+  width: 18%;
+}
+
+.context {
+  width: 82%;
+  background-color: rosybrown;
+}
+
+.card-list {
+  margin-top: 40px;
+  margin-left: 20px;
+  background-color: cyan;
+  width: 100%;
+  height: 100%;
+}
+</style>
