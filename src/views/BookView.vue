@@ -2,7 +2,7 @@
 import searchHeaderBar from '../components/searchHeaderBar.vue'
 import bookFilterTool from '../components/bookFilterTool.vue'
 import bookCard from '../components/bookCard.vue'
-
+import paginationBar from '../components/paginationBar.vue'
 
 export default {
   data() {
@@ -19,7 +19,8 @@ export default {
   components: {
     searchHeaderBar,
     bookFilterTool,
-    bookCard
+    bookCard,
+    paginationBar
   }
 }
 </script>
@@ -43,17 +44,7 @@ export default {
         <bookCard />
       </div>
       <div>
-        <div class="text-center">
-          <v-container>
-            <v-row justify="center">
-              <v-col cols="8">
-                <v-container class="max-width">
-                  <v-pagination v-model="page" class="my-4" :length="15"></v-pagination>
-                </v-container>
-              </v-col>
-            </v-row>
-          </v-container>
-        </div>
+        <paginationBar />
       </div>
     </div>
   </div>
