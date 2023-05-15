@@ -3,6 +3,7 @@ import searchHeaderBar from '../components/searchHeaderBar.vue'
 import bookFilterTool from '../components/bookFilterTool.vue'
 import bookCard from '../components/bookCard.vue'
 import paginationBar from '../components/paginationBar.vue'
+import bookContent from '../components/bookContent.vue'
 
 export default {
   data() {
@@ -45,7 +46,8 @@ export default {
     searchHeaderBar,
     bookFilterTool,
     bookCard,
-    paginationBar
+    paginationBar,
+    bookContent
   }
 }
 </script>
@@ -72,7 +74,9 @@ export default {
         <paginationBar />
       </div>
 
-      <div :class="{ 'book-content': true, 'book-fixed': isFixed }" v-if="display"></div>
+      <div :class="{ 'book-content': true, 'book-fixed': isFixed }" v-if="display">
+        <bookContent />
+      </div>
     </div>
   </div>
 </template>
@@ -104,7 +108,7 @@ export default {
   right: 0;
   width: 42%;
   height: 2400px;
-  background-color: gray;
+  background-color: rgb(243, 243, 243);
   overflow: auto;
 }
 
