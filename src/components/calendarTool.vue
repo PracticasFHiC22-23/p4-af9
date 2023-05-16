@@ -6,6 +6,7 @@
       :loading="loading"
       :class-names="classNames"
       :meetings-days="meetingsDays"
+      :calendar-options="calendarOptions"
       v-model="meeting"
       @next-date="nextDate"
       @previous-date="previousDate"
@@ -24,19 +25,51 @@ import MeetingsDay from '../../node_modules/vue-meeting-selector/src/interfaces/
 import MeetingSlot from '../../node_modules/vue-meeting-selector/src/interfaces/MeetingSlot.interface'
 import CalendarOptions from '../../node_modules/vue-meeting-selector/src/interfaces/CalendarOptions.interface'
 
-
 export default defineComponent({
   name: 'SimpleExample',
   components: {
     VueMeetingSelector
   },
   setup() {
+    const decomposeDate = (date: Date): number => {
+      const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1
+      const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
+      return parseInt(`${date.getFullYear()}${month}${day}`, 10)
+    }
+
+    const disabledDate = (date: Date | string): boolean => {
+      const actualDate = new Date(date)
+      const today = new Date()
+      return decomposeDate(actualDate) <= decomposeDate(today)
+    }
+
     const date = ref(new Date())
     const meetingsDays = ref<MeetingsDay | null>(null)
     const meeting = ref<MeetingSlot | null>(null)
     const loading = ref(true)
+    const calendarOptions = ref<CalendarOptions | null>({
+      daysLabel: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
+      monthsLabel: [
+        'jan.',
+        'feb.',
+        'mar.',
+        'apr.',
+        'may.',
+        'jun.',
+        'jul.',
+        'aug.',
+        'sep.',
+        'oct.',
+        'nov.',
+        'dec.'
+      ],
+      limit: 6,
+      loadingLabel: 'Loading ...',
+      // eslint-disable-next-line no-unused-vars
+      disabledDate: disabledDate
+    })
 
-    const nbDaysToDisplay = computed(() => 5)
+    const nbDaysToDisplay = computed(() => 7)
 
     const classNames = computed(() => ({
       tabLoading: 'loading-div'
@@ -124,6 +157,7 @@ export default defineComponent({
       nbDaysToDisplay,
       classNames,
       meeting,
+      calendarOptions,
       nextDate,
       previousDate
     }
