@@ -1,11 +1,13 @@
 <script lang="ts">
 import searchHeaderBar from '../components/searchHeaderBar.vue'
 import bookFilterTool from '../components/bookFilterTool.vue'
+import calendarTool from '../components/calendarTool.vue'
 
 export default {
   data() {
     return {
       display: false,
+      knowledge: 33,
       center: { lat: 41.3963242, lng: 2.1338434 },
       markers: [
         {
@@ -133,7 +135,8 @@ export default {
 
   components: {
     searchHeaderBar,
-    bookFilterTool
+    bookFilterTool,
+    calendarTool
   }
 }
 </script>
@@ -178,7 +181,125 @@ export default {
         </GMapMap>
       </div>
 
-      <div>sdsdsds</div>
+      <div style="margin-top: 30px" v-if="display">
+        <div style="color: gray; font-weight: 600; font-size: 24px; margin-bottom: 20px">
+          Detalles
+        </div>
+
+        <div style="display: flex">
+          <div>
+            <img src="https://crai.ub.edu/sites/default/files/imatges/mates.png" alt="" />
+          </div>
+          <div style="margin-left: 20px; width: 60%">
+            <div style="font-size: 18px; font-weight: 600; margin-bottom: 20px">
+              Sales de treball del CRAI biblioteca de Matemàtiqeus i Informatica
+            </div>
+            <div style="color: gray; font-size: 18px">Action</div>
+            <div
+              style="
+                display: flex;
+                flex-wrap: wrap;
+                align-items: flex-start; /* vertical-align to top */
+                margin-top: 20px;
+              "
+            >
+              <v-btn prepend-icon="mdi-printer" stacked variant="text" style="width: 120px">
+                imprmir
+              </v-btn>
+              <v-btn
+                prepend-icon="mdi-note-plus-outline"
+                stacked
+                variant="text"
+                style="width: 120px"
+              >
+                EXPORTARIS
+              </v-btn>
+              <v-btn
+                prepend-icon="mdi-note-edit-outline"
+                stacked
+                variant="text"
+                style="width: 120px"
+              >
+                ENDNOTE
+              </v-btn>
+              <v-btn
+                prepend-icon="mdi-share-variant-outline"
+                stacked
+                variant="text"
+                style="width: 120px"
+              >
+                mendeley
+              </v-btn>
+              <v-btn
+                prepend-icon=" mdi-file-export-outline"
+                stacked
+                variant="text"
+                style="width: 120px"
+              >
+                export
+              </v-btn>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            width: 80%;
+            justify-content: center;
+            margin-top: 40px;
+            margin-bottom: 60px;
+          "
+        >
+          <calendarTool />
+        </div>
+      </div>
+
+      <div class="information" v-if="display">
+        <div style="color: gray; font-size: 20px; margin-bottom: 20px; font-weight: 600">
+          Informació
+        </div>
+
+        <div
+          style="
+            color: rgb(43, 43, 43);
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            margin-left: 12px;
+          "
+        >
+          Sales de treball del CRAI Biblioteca de Matemàtiques i informtica
+        </div>
+
+        <div
+          style="
+            color: rgb(43, 43, 43);
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            margin-left: 12px;
+          "
+        >
+          horario: 9:00 - 21:00
+        </div>
+
+        <div
+          style="
+            color: rgb(43, 43, 43);
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            margin-left: 12px;
+          "
+        >
+          Direcció Avigunda granvia 535
+        </div>
+
+        <v-progress-linear v-model="knowledge" color="amber" height="25" style="margin-left: 12px">
+          <strong>{{ Math.ceil(knowledge) }}%</strong>
+        </v-progress-linear>
+      </div>
     </div>
   </div>
 </template>
@@ -196,5 +317,12 @@ export default {
 .context {
   width: 82%;
   position: relative;
+}
+
+.information {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  width: 20rem;
 }
 </style>

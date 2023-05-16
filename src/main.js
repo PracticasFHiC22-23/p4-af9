@@ -8,6 +8,7 @@ import VueGoogleMaps from 'vue-google-maps-community-fork'
 
 import './assets/normalize.css'
 import './assets/main.css'
+import '../node_modules/vue-meeting-selector/dist/style.css'
 
 const app = createApp(App)
 
