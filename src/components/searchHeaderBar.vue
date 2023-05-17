@@ -51,6 +51,8 @@ export default {
 
           <v-spacer></v-spacer>
 
+          <v-btn variant="plain" class="text-none" :ripple="false"> Sales </v-btn>
+          <v-btn variant="plain" class="text-none" :ripple="false"> Examenes </v-btn>
           <v-btn icon="mdi-dots-grid"></v-btn>
 
           <v-btn variant="text" icon="mdi-account"></v-btn>
