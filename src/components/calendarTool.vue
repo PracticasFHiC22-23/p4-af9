@@ -10,8 +10,8 @@
       v-model="meeting"
       @next-date="nextDate"
       @previous-date="previousDate"
+      @meeting-slot-selected="selectTime"
     />
-    <p>meeting Selected: {{ meeting ? meeting : 'No Meeting selected' }}</p>
   </div>
 </template>
 
@@ -25,19 +25,23 @@ import MeetingsDay from '../../node_modules/vue-meeting-selector/src/interfaces/
 import MeetingSlot from '../../node_modules/vue-meeting-selector/src/interfaces/MeetingSlot.interface'
 import CalendarOptions from '../../node_modules/vue-meeting-selector/src/interfaces/CalendarOptions.interface'
 
+import { inject } from 'vue'
+
 export default defineComponent({
   name: 'SimpleExample',
   components: {
     VueMeetingSelector
   },
   setup() {
-    const decomposeDate = (date: Date): number => {
+    const handleChildMessage = inject('handleChildMessage')
+
+    const decomposeDate = (date) => {
       const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1
       const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
       return parseInt(`${date.getFullYear()}${month}${day}`, 10)
     }
 
-    const disabledDate = (date: Date | string): boolean => {
+    const disabledDate = (date) => {
       const actualDate = new Date(date)
       const today = new Date()
       return decomposeDate(actualDate) <= decomposeDate(today)
@@ -131,6 +135,12 @@ export default defineComponent({
       loading.value = false
     }
 
+    const selectTime = (res) => {
+      handleChildMessage.value = true
+    }
+
+    const message = inject('message')
+
     onMounted(async () => {
       const start = {
         hours: 9,
@@ -151,6 +161,7 @@ export default defineComponent({
     })
 
     return {
+      message,
       date,
       meetingsDays,
       loading,
@@ -159,7 +170,8 @@ export default defineComponent({
       meeting,
       calendarOptions,
       nextDate,
-      previousDate
+      previousDate,
+      selectTime
     }
   }
 })
