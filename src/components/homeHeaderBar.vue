@@ -22,7 +22,7 @@ export default {
 
           <v-btn variant="plain" class="text-none" :ripple="false"> Examenes </v-btn>
 
-          <v-btn variant="plain" class="text-none" :ripple="false"> Libres </v-btn>
+          <v-btn variant="plain" class="text-none" :ripple="false"> Llibres </v-btn>
 
           <v-btn variant="plain" class="text-none" :ripple="false"> Sales </v-btn>
 
