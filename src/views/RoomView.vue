@@ -1,5 +1,5 @@
 <script lang="ts">
-import searchHeaderBar from '../components/searchHeaderBar.vue'
+import roomHeaderBar from '../components/roomHeaderBar.vue'
 import bookFilterTool from '../components/bookFilterTool.vue'
 import calendarTool from '../components/calendarTool.vue'
 
@@ -134,7 +134,7 @@ export default {
   },
 
   components: {
-    searchHeaderBar,
+    roomHeaderBar,
     bookFilterTool,
     calendarTool
   }
@@ -142,7 +142,7 @@ export default {
 </script>
 
 <template>
-  <searchHeaderBar />
+  <roomHeaderBar />
 
   <div class="main">
     <div class="filtering">

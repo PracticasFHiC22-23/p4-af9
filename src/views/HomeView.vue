@@ -17,7 +17,14 @@ export default {
       setTimeout(() => {
         this.loading = false
         this.loaded = true
+        this.$router.push({ path: '/book' })
       }, 2000)
+    },
+
+    onSearch(e) {
+      if (e.keyCode == '13') {
+        this.onClick()
+      }
     }
   },
 
@@ -49,6 +56,7 @@ export default {
         single-line
         hide-details
         @click:append-inner="onClick"
+        @keydown="onSearch"
       ></v-text-field>
     </v-card>
 

@@ -5,6 +5,18 @@ export default {
     group: null
   }),
 
+  methods: {
+    gotoExam() {
+      this.$router.push({ path: '/exam' })
+    },
+    gotoBook() {
+      this.$router.push({ path: '/book' })
+    },
+    gotoRoom() {
+      this.$router.push({ path: '/room' })
+    }
+  },
+
   watch: {
     group() {
       this.drawer = false
@@ -20,11 +32,17 @@ export default {
         <v-app-bar color="primary" prominent flat="true">
           <v-spacer></v-spacer>
 
-          <v-btn variant="plain" class="text-none" :ripple="false"> Examenes </v-btn>
+          <v-btn variant="plain" class="text-none" :ripple="false" @click="gotoExam()">
+            Examenes
+          </v-btn>
 
-          <v-btn variant="plain" class="text-none" :ripple="false"> Llibres </v-btn>
+          <v-btn variant="plain" class="text-none" :ripple="false" @click="gotoBook()">
+            Llibres
+          </v-btn>
 
-          <v-btn variant="plain" class="text-none" :ripple="false"> Sales </v-btn>
+          <v-btn variant="plain" class="text-none" :ripple="false" @click="gotoRoom()">
+            Sales
+          </v-btn>
 
           <v-btn icon="mdi-dots-grid"></v-btn>
 

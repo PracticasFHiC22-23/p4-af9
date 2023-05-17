@@ -27,7 +27,7 @@ export default {
     },
 
     handleScroll() {
-      if (window.pageYOffset > 100) {
+      if (window.pageYOffset > 120) {
         this.toggleFixed(true)
       } else {
         this.toggleFixed(false)
@@ -114,7 +114,7 @@ export default {
 
 .book-fixed {
   position: fixed;
-  top: 100px;
+  top: 0px;
   width: 34.5%;
 }
 </style>

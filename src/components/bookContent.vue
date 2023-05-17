@@ -1,6 +1,12 @@
 <script>
 export default {
-  data() {},
+  data() {
+    return {
+      dialogm1: '',
+      dialog: false,
+      date: new Date()
+    }
+  },
 
   methods: {}
 }
@@ -32,9 +38,46 @@ export default {
         <v-btn prepend-icon="mdi-printer" stacked variant="text" style="width: 120px">
           imprmir
         </v-btn>
-        <v-btn prepend-icon="mdi-note-plus-outline" stacked variant="text" style="width: 120px">
-          EXPORTARIS
-        </v-btn>
+
+        <v-dialog v-model="dialog" scrollable width="auto">
+          <template v-slot:activator="{ props }">
+            <v-btn
+              prepend-icon="mdi-note-plus-outline"
+              v-bind="props"
+              stacked
+              variant="text"
+              style="width: 120px"
+            >
+              RESERVAR
+            </v-btn>
+          </template>
+          <v-card>
+            <v-card-title>Reservar Llibre</v-card-title>
+            <v-divider></v-divider>
+            <v-card-text style="height: 470px">
+              <v-select
+                :items="[
+                  'Biblioteca de Bellas Artes',
+                  'Biblioteca de Biología',
+                  'Biblioteca de Ciencias de la Tierra',
+                  'Biblioteca de Derecho',
+                  'Biblioteca de Física y Química'
+                ]"
+                label="Facultat"
+                variant="solo"
+                required
+              ></v-select>
+              <VueDatePicker v-model="date" inline auto-apply position="center" />
+            </v-card-text>
+            <v-card-actions style="display: flex; justify-content: space-around">
+              <v-btn color="red-darken-1" variant="text" @click="dialog = false"> Cancel </v-btn>
+              <v-btn color="blue-darken-1" variant="text" @click="dialog = false">
+                Confirmar
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+
         <v-btn prepend-icon="mdi-note-edit-outline" stacked variant="text" style="width: 120px">
           ENDNOTE
         </v-btn>
