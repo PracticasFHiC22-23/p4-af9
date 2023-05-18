@@ -4,11 +4,17 @@ export default {
     return {
       dialogm1: '',
       dialog: false,
-      date: new Date()
+      date: new Date(),
+      isColorChanged: false,
+      originalColor: ''
     }
   },
 
-  methods: {}
+  methods: {
+    toggleColor() {
+      this.isColorChanged = !this.isColorChanged
+    }
+  }
 }
 </script>
 
@@ -82,6 +88,8 @@ export default {
           prepend-icon="mdi mdi-heart-plus-outline"
           stacked
           variant="text"
+          :class="{ changed: isColorChanged }"
+          @click="toggleColor"
           style="width: 120px"
         >
           Favoritos
@@ -159,5 +167,9 @@ export default {
 .book-detall {
   padding-top: 16px;
   margin-left: 12px;
+}
+
+.changed {
+  color: red;
 }
 </style>

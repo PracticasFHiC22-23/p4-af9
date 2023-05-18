@@ -1,12 +1,27 @@
 <script>
 export default {
   data() {
-    return { value: [1980, 2023] }
+    return {
+      isColorChanged: false,
+      originalColor: ''
+    }
+  },
+
+  props: {
+    img: String,
+    type: String,
+    title: String,
+    author: String,
+    info: String,
+    descriptions: String
   },
 
   methods: {
     onClick() {
       this.$emit('custom-event', '事件参数')
+    },
+    toggleColor() {
+      this.isColorChanged = !this.isColorChanged
     }
   }
 }
@@ -15,26 +30,27 @@ export default {
 <template>
   <div class="book-card" @click="onClick">
     <div class="book-img">
-      <img src="https://m.media-amazon.com/images/I/41gr3r3FSWL.jpg" />
+      <img :src="img" />
     </div>
     <div class="book-context">
-      <div style="font-weight: 600; font-size: 16px; color: gray; margin-bottom: 14px">Llibre</div>
-      <div style="font-size: 16px; color: rgb(54, 99, 126); font-weight: 600; margin-bottom: 7px">
-        CS (Universidad Iccsi. Facultad de Derecho y Ciencias) CS.Uni
+      <div style="font-weight: 600; font-size: 16px; color: gray; margin-bottom: 14px">
+        {{ type }}
       </div>
-      <div style="color: gray; margin-bottom: 7px">vening, Martin.</div>
+      <div style="font-size: 16px; color: rgb(54, 99, 126); font-weight: 600; margin-bottom: 7px">
+        {{ title }}
+      </div>
+      <div style="color: gray; margin-bottom: 7px">{{ author }}</div>
       <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px">
-        <p>hysical review letters, 2019, Vol.122(10), p.103001-103001</p>
+        <p>{{ info }}</p>
         <p>
-          Ultralong-range Rydberg trimer molecules are spectrosocpila obereved in aultracoid gas of
-          Cs(nd_3/2)
+          {{ descriptions }}
         </p>
       </div>
       <div class="types">
-        <v-chip variant="elevated" color="#a23759"> Type1 </v-chip>
-        <v-chip variant="elevated" color="#b23759" style="margin-left: 7px"> Type2 </v-chip>
-        <v-chip variant="elevated" color="#123759" style="margin-left: 7px"> Type3 </v-chip>
-        <v-chip variant="elevated" color="#823759" style="margin-left: 7px"> Type4 </v-chip>
+        <v-chip variant="elevated" color="#a41243"> Ciencia </v-chip>
+        <v-chip variant="elevated" color="#238536" style="margin-left: 7px"> Informatica </v-chip>
+        <v-chip variant="elevated" color="#976e41" style="margin-left: 7px"> Disseny </v-chip>
+        <v-chip variant="elevated" color="#314357" style="margin-left: 7px"> Nuevo </v-chip>
       </div>
 
       <div class="card-action">
@@ -56,7 +72,14 @@ export default {
           icon=" mdi-note-edit-outline"
           size="small"
         ></v-btn>
-        <v-btn class="ma-2 mt-0 ml-0" variant="text" icon=" mdi-heart-outline" size="small"></v-btn>
+        <v-btn
+          class="ma-2 mt-0 ml-0"
+          variant="text"
+          icon=" mdi-heart-outline"
+          size="small"
+          :class="{ changed: isColorChanged }"
+          @click="toggleColor"
+        ></v-btn>
         <v-btn
           class="ma-2 mt-0 ml-0"
           variant="text"
@@ -73,7 +96,7 @@ export default {
   display: flex;
   justify-self: start;
   height: 180px;
-  width: 80%;
+  width: 60%;
   margin-bottom: 30px;
 }
 
@@ -92,6 +115,7 @@ img {
 }
 
 .book-context {
+  width: 100%;
   position: relative;
   margin-top: 7px;
   margin-left: 10px;
@@ -106,5 +130,9 @@ img {
 .card-action v-btn {
   margin-top: 0px;
   margin-left: 0px;
+}
+
+.changed {
+  color: red;
 }
 </style>
