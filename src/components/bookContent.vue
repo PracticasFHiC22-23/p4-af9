@@ -78,28 +78,25 @@ export default {
           </v-card>
         </v-dialog>
 
-        <v-btn prepend-icon="mdi-note-edit-outline" stacked variant="text" style="width: 120px">
-          ENDNOTE
+        <v-btn
+          prepend-icon="mdi mdi-heart-plus-outline"
+          stacked
+          variant="text"
+          style="width: 120px"
+        >
+          Favoritos
         </v-btn>
         <v-btn prepend-icon="mdi-share-variant-outline" stacked variant="text" style="width: 120px">
           mendeley
         </v-btn>
-        <v-btn prepend-icon=" mdi-file-export-outline" stacked variant="text" style="width: 120px">
-          export
+        <v-btn
+          prepend-icon=" mdi mdi-download-box-outline"
+          stacked
+          variant="text"
+          style="width: 120px"
+        >
+          Descargar
         </v-btn>
-        <v-btn prepend-icon="mdi-email-fast-outline" stacked variant="text" style="width: 120px">
-          correu
-        </v-btn>
-        <v-btn prepend-icon="mdi-format-quote-close" stacked variant="text" style="width: 120px">
-          citacio
-        </v-btn>
-        <v-btn prepend-icon="mdi-link-variant" stacked variant="text" style="width: 120px">
-          enllaç
-        </v-btn>
-        <v-btn prepend-icon="mdi-eye-outline" stacked variant="text" style="width: 120px">
-          registre
-        </v-btn>
-        <v-btn prepend-icon="mdi-web" stacked variant="text" style="width: 120px"> web </v-btn>
       </div>
     </div>
 

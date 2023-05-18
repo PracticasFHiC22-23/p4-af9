@@ -18,7 +18,7 @@ export default {
       <img src="https://m.media-amazon.com/images/I/41gr3r3FSWL.jpg" />
     </div>
     <div class="book-context">
-      <div style="font-weight: 600; font-size: 16px; color: gray; margin-bottom: 7px">Llibre</div>
+      <div style="font-weight: 600; font-size: 16px; color: gray; margin-bottom: 14px">Llibre</div>
       <div style="font-size: 16px; color: rgb(54, 99, 126); font-weight: 600; margin-bottom: 7px">
         CS (Universidad Iccsi. Facultad de Derecho y Ciencias) CS.Uni
       </div>
@@ -42,31 +42,26 @@ export default {
           class="ma-2 mt-0 ml-0"
           variant="text"
           icon="mdi-share-variant-outline"
-          size="x-small"
+          size="small"
         ></v-btn>
         <v-btn
           class="ma-2 mt-0 ml-0"
           variant="text"
           icon="mdi-email-arrow-right-outline"
-          size="x-small"
+          size="small"
         ></v-btn>
         <v-btn
           class="ma-2 mt-0 ml-0"
           variant="text"
           icon=" mdi-note-edit-outline"
-          size="x-small"
+          size="small"
         ></v-btn>
-        <v-btn
-          class="ma-2 mt-0 ml-0"
-          variant="text"
-          icon=" mdi-heart-outline"
-          size="x-small"
-        ></v-btn>
+        <v-btn class="ma-2 mt-0 ml-0" variant="text" icon=" mdi-heart-outline" size="small"></v-btn>
         <v-btn
           class="ma-2 mt-0 ml-0"
           variant="text"
           icon="mdi-dots-horizontal"
-          size="x-small"
+          size="small"
         ></v-btn>
       </div>
     </div>
@@ -78,7 +73,7 @@ export default {
   display: flex;
   justify-self: start;
   height: 180px;
-  width: 74%;
+  width: 80%;
   margin-bottom: 30px;
 }
 

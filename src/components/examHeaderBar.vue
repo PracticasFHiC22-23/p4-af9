@@ -84,7 +84,7 @@ export default {
         <v-btn variant="text" icon="mdi-account"></v-btn>
       </v-layout>
       <v-card-title style="margin-left: 20px; color: #757575; font-size: 18px">
-        <span class="mdi mdi-library-outline"></span> Examenes
+        <span class="mdi mdi-note-edit-outline"> </span> Examenes
       </v-card-title>
     </v-card>
   </header>
