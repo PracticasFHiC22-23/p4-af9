@@ -1,6 +1,6 @@
 <script lang="ts">
 import roomHeaderBar from '../components/roomHeaderBar.vue'
-import bookFilterTool from '../components/bookFilterTool.vue'
+import bookFilterTool from '../components/roomFilterTool.vue'
 import calendarTool from '../components/calendarTool.vue'
 import { provide, ref } from 'vue'
 

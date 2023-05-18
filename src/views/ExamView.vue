@@ -1,6 +1,6 @@
 <script lang="ts">
 import examHeaderBar from '../components/examHeaderBar.vue'
-import bookFilterTool from '../components/bookFilterTool.vue'
+import examFilterTool from '../components/examFilterTool.vue'
 import examCard from '../components/examCard.vue'
 import examContent from '../components/examContent.vue'
 
@@ -43,7 +43,7 @@ export default {
 
   components: {
     examHeaderBar,
-    bookFilterTool,
+    examFilterTool,
     examCard,
     examContent
   }
@@ -55,7 +55,7 @@ export default {
 
   <div class="main">
     <div class="filtering">
-      <bookFilterTool />
+      <examFilterTool />
     </div>
     <div class="context">
       <div class="card-list">
