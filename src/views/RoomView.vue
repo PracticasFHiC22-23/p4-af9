@@ -217,6 +217,11 @@ export default {
             <div style="font-size: 18px; font-weight: 600; margin-bottom: 20px">
               Sales de treball del CRAI biblioteca de Matemàtiqeus i Informatica
             </div>
+            <div>
+              El CRAI Biblioteca de Matemáticas e Informática ofrece los fondos bibliográficos de
+              apoyo a los programas docentes y de investigación de las enseñanzas impartidas en la
+              Facultad: Matemáticas e Ingeniería Informática.
+            </div>
             <div style="display: flex; flex-wrap: wrap; align-items: flex-start; margin-top: 20px">
               <v-btn prepend-icon="mdi-printer" stacked variant="text" style="width: 120px">
                 imprmir
