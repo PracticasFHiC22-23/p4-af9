@@ -1,148 +1,171 @@
 <script lang="ts">
-import searchHeaderBar from '../components/searchHeaderBar.vue'
-import bookFilterTool from '../components/bookFilterTool.vue'
+import roomHeaderBar from '../components/roomHeaderBar.vue'
+import bookFilterTool from '../components/roomFilterTool.vue'
 import calendarTool from '../components/calendarTool.vue'
+import { provide, ref } from 'vue'
 
 export default {
-  data() {
-    return {
-      display: false,
-      knowledge: 33,
-      center: { lat: 41.3963242, lng: 2.1338434 },
-      markers: [
-        {
-          id: 1,
-          position: {
-            lat: 41.381615,
-            lng: 2.115648
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.386037,
-            lng: 2.120218
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.346013,
-            lng: 2.106643
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.389548,
-            lng: 2.152161
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.438399,
-            lng: 2.144717
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.38427,
-            lng: 2.118968
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.3722102,
-            lng: 2.1538077
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.385645,
-            lng: 2.115395
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.384945,
-            lng: 2.12131
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.383991,
-            lng: 2.166903
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.384922,
-            lng: 2.116396
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.386457,
-            lng: 2.163853
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.381208,
-            lng: 2.139126
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.386474,
-            lng: 2.163729
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.386672,
-            lng: 2.163866
-          }
-        },
-        {
-          id: 1,
-          position: {
-            lat: 41.430761,
-            lng: 2.151091
-          }
-        }
-      ]
-    }
-  },
-
-  methods: {
-    openWindow(id) {
-      console.log(id)
-      this.display = !this.display
-    }
-  },
-
   components: {
-    searchHeaderBar,
+    roomHeaderBar,
     bookFilterTool,
     calendarTool
+  },
+
+  setup() {
+    const message = ref('')
+
+    // 提供数据给子组件
+    const provideData = () => {
+      message.value = 'Hello from parent!'
+    }
+
+    const display = ref(false)
+    const knowledge = ref(33)
+    const center = ref({ lat: 41.3963242, lng: 2.1338434 })
+    const markers = ref([
+      {
+        id: 1,
+        position: {
+          lat: 41.381615,
+          lng: 2.115648
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.386037,
+          lng: 2.120218
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.346013,
+          lng: 2.106643
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.389548,
+          lng: 2.152161
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.438399,
+          lng: 2.144717
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.38427,
+          lng: 2.118968
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.3722102,
+          lng: 2.1538077
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.385645,
+          lng: 2.115395
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.384945,
+          lng: 2.12131
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.383991,
+          lng: 2.166903
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.384922,
+          lng: 2.116396
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.386457,
+          lng: 2.163853
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.381208,
+          lng: 2.139126
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.386474,
+          lng: 2.163729
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.386672,
+          lng: 2.163866
+        }
+      },
+      {
+        id: 1,
+        position: {
+          lat: 41.430761,
+          lng: 2.151091
+        }
+      }
+    ])
+
+    const openWindow = (id) => {
+      console.log(id)
+      display.value = !display.value
+    }
+
+    const handleChildMessage = ref(false)
+    provide('handleChildMessage', handleChildMessage)
+
+    const handleEvent = () => {
+      console.log('tes!!!')
+    }
+
+    return {
+      handleChildMessage,
+      message,
+      provideData,
+      display,
+      knowledge,
+      center,
+      markers,
+      openWindow,
+      handleEvent
+    }
   }
 }
 </script>
 
 <template>
-  <searchHeaderBar />
+  <roomHeaderBar />
 
   <div class="main">
     <div class="filtering">
@@ -194,25 +217,9 @@ export default {
             <div style="font-size: 18px; font-weight: 600; margin-bottom: 20px">
               Sales de treball del CRAI biblioteca de Matemàtiqeus i Informatica
             </div>
-            <div style="color: gray; font-size: 18px">Action</div>
-            <div
-              style="
-                display: flex;
-                flex-wrap: wrap;
-                align-items: flex-start; /* vertical-align to top */
-                margin-top: 20px;
-              "
-            >
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; margin-top: 20px">
               <v-btn prepend-icon="mdi-printer" stacked variant="text" style="width: 120px">
                 imprmir
-              </v-btn>
-              <v-btn
-                prepend-icon="mdi-note-plus-outline"
-                stacked
-                variant="text"
-                style="width: 120px"
-              >
-                EXPORTARIS
               </v-btn>
               <v-btn
                 prepend-icon="mdi-note-edit-outline"
@@ -252,6 +259,22 @@ export default {
           "
         >
           <calendarTool />
+
+          <v-dialog v-model="handleChildMessage" persistent width="auto">
+            <v-card>
+              <v-card-title class="text-h5"> Reserva Sala </v-card-title>
+              <v-card-text>¿Estás seguro de que quieres hacer una cita para esta sala?</v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="red-darken-1" variant="text" @click="handleChildMessage = false">
+                  Cancel
+                </v-btn>
+                <v-btn color="green-darken-1" variant="text" @click="handleChildMessage = false">
+                  Confirmar
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
         </div>
       </div>
 

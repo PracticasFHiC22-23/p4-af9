@@ -19,26 +19,28 @@ export default {
 
 <template>
   <div class="filter">
-    <div class="filter-block temps">
-      <div class="title">Cualquier momento</div>
+    <div class="filter-without temps">
+      <div class="title">Filter</div>
       <div class="item">
-        <div>Desde 2023</div>
-        <div>Desde 2022</div>
-        <div>Desde 2021</div>
-        <div>personal:</div>
+        <v-select label="tematica" :items="['grau', 'master']" variant="underlined"></v-select>
+        <v-select
+          label="Branch"
+          :items="['Arte', 'Ciencia de natural', 'Ciencie de social', 'Dret', 'Lengua']"
+          variant="underlined"
+        ></v-select>
+        <v-select
+          label="Assignatura"
+          :items="['CÀLCUL', 'DISSENY DIGITAL BÀSIC', '	PROGRAMACIÓ I']"
+          variant="underlined"
+        ></v-select>
       </div>
     </div>
     <div class="filter-block temps">
-      <div class="title order">Ordenar por relevancia</div>
-      <div class="item order" style="margin-top: 8px">Ordenar por fecha</div>
-    </div>
-    <div class="filter-block temps">
-      <div class="title order">Cualquier idioma</div>
-      <div class="item order" style="margin-top: 8px">Buscar solo páginas en español</div>
-    </div>
-    <div class="filter-block temps">
-      <div class="title order">Cualquier tipo</div>
-      <div class="item order" style="margin-top: 8px">Artículos de revisión</div>
+      <div class="title">orden</div>
+      <div class="item">
+        <div>de grande a pequeño</div>
+        <div>De pequeño a grande</div>
+      </div>
     </div>
   </div>
 </template>
@@ -57,6 +59,11 @@ export default {
   margin-bottom: 30px;
 }
 
+.filter-without {
+  padding-bottom: 12px;
+  padding-left: 6px;
+}
+
 .title {
   font-size: 16px;
   color: rgb(160, 25, 52);
@@ -67,15 +74,11 @@ export default {
   color: rgb(65, 57, 57);
   margin-top: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .item div:hover {
-  font-size: 18px;
-  color: rgb(160, 25, 52);
-}
-
-.order:hover {
-  font-size: 18px;
+  font-size: 17px;
   color: rgb(160, 25, 52);
 }
 </style>

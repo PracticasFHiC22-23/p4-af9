@@ -78,13 +78,15 @@ export default {
         <v-btn variant="plain" class="text-none" :ripple="false" @click="gotoExam()">
           Examenes
         </v-btn>
-        <v-btn variant="plain" class="text-none" :ripple="false" @click="gotoRoom()"> Sales </v-btn>
+        <v-btn variant="plain" class="text-none" :ripple="false" @click="gotoBook()">
+          Llibres
+        </v-btn>
         <v-btn variant="text" icon="mdi-dots-grid"></v-btn>
 
         <v-btn variant="text" icon="mdi-account"></v-btn>
       </v-layout>
       <v-card-title style="margin-left: 20px; color: #757575; font-size: 18px">
-        <span class="mdi mdi-school-outline"></span> Articulos
+        <span class="mdi mdi-library-outline"></span> Sales
       </v-card-title>
     </v-card>
   </header>

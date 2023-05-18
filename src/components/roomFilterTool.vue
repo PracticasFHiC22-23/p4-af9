@@ -20,25 +20,28 @@ export default {
 <template>
   <div class="filter">
     <div class="filter-block temps">
-      <div class="title">Cualquier momento</div>
+      <div class="title">Horaris</div>
       <div class="item">
-        <div>Desde 2023</div>
-        <div>Desde 2022</div>
-        <div>Desde 2021</div>
-        <div>personal:</div>
+        <div>8 a 20 h</div>
+        <div>8.30 a 20.30 h</div>
+        <div>9.30 a 20.30 h</div>
+        <div>especial</div>
       </div>
     </div>
     <div class="filter-block temps">
-      <div class="title order">Ordenar por relevancia</div>
-      <div class="item order" style="margin-top: 8px">Ordenar por fecha</div>
+      <div class="title">Cualquier momento</div>
+      <div class="item">
+        <div>dilluns a divendres</div>
+        <div>caps de setmana i festius</div>
+        <div>Període d'exàmens</div>
+      </div>
     </div>
     <div class="filter-block temps">
-      <div class="title order">Cualquier idioma</div>
-      <div class="item order" style="margin-top: 8px">Buscar solo páginas en español</div>
-    </div>
-    <div class="filter-block temps">
-      <div class="title order">Cualquier tipo</div>
-      <div class="item order" style="margin-top: 8px">Artículos de revisión</div>
+      <div class="title">Estats</div>
+      <div class="item">
+        <div>public</div>
+        <div>privat</div>
+      </div>
     </div>
   </div>
 </template>
@@ -67,15 +70,11 @@ export default {
   color: rgb(65, 57, 57);
   margin-top: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .item div:hover {
-  font-size: 18px;
-  color: rgb(160, 25, 52);
-}
-
-.order:hover {
-  font-size: 18px;
+  font-size: 17px;
   color: rgb(160, 25, 52);
 }
 </style>

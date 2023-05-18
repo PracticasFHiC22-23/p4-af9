@@ -1,9 +1,8 @@
 <script lang="ts">
-import searchHeaderBar from '../components/searchHeaderBar.vue'
-import bookFilterTool from '../components/bookFilterTool.vue'
-import bookCard from '../components/bookCard.vue'
-import paginationBar from '../components/paginationBar.vue'
-import bookContent from '../components/bookContent.vue'
+import examHeaderBar from '../components/examHeaderBar.vue'
+import examFilterTool from '../components/examFilterTool.vue'
+import examCard from '../components/examCard.vue'
+import examContent from '../components/examContent.vue'
 
 export default {
   data() {
@@ -43,39 +42,35 @@ export default {
   },
 
   components: {
-    searchHeaderBar,
-    bookFilterTool,
-    bookCard,
-    paginationBar,
-    bookContent
+    examHeaderBar,
+    examFilterTool,
+    examCard,
+    examContent
   }
 }
 </script>
 
 <template>
-  <searchHeaderBar />
+  <examHeaderBar />
 
   <div class="main">
     <div class="filtering">
-      <bookFilterTool />
+      <examFilterTool />
     </div>
     <div class="context">
       <div class="card-list">
-        <bookCard @custom-event="handleEvent" />
-        <bookCard @custom-event="handleEvent" />
-        <bookCard @custom-event="handleEvent" />
-        <bookCard @custom-event="handleEvent" />
-        <bookCard @custom-event="handleEvent" />
-        <bookCard @custom-event="handleEvent" />
-        <bookCard @custom-event="handleEvent" />
-        <bookCard @custom-event="handleEvent" />
-      </div>
-      <div>
-        <paginationBar />
+        <examCard @custom-event="handleEvent" />
+        <examCard @custom-event="handleEvent" />
+        <examCard @custom-event="handleEvent" />
+        <examCard @custom-event="handleEvent" />
+        <examCard @custom-event="handleEvent" />
+        <examCard @custom-event="handleEvent" />
+        <examCard @custom-event="handleEvent" />
+        <examCard @custom-event="handleEvent" />
       </div>
 
       <div :class="{ 'book-content': true, 'book-fixed': isFixed }" v-if="display">
-        <bookContent />
+        <examContent />
       </div>
     </div>
   </div>

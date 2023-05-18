@@ -12,7 +12,7 @@ export default {
   <div class="text-center">
     <v-container>
       <v-row justify="left">
-        <v-col cols="8">
+        <v-col cols="6">
           <v-container class="max-width">
             <v-pagination v-model="page" class="my-4" :length="15"></v-pagination>
           </v-container>
